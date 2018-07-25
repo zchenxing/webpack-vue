@@ -1,0 +1,32 @@
+@import 'style';
+@header-height: 60px;
+@footer-height: 50px;
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+
+.header-view {
+    width: 100%;
+    height: @header-height;
+    position: absolute;
+    background: @color-gray-lighten;
+}
+
+
+.footer-view {
+    width: 100%;
+    height: @footer-height;
+    background: @color-gray-lighten;
+    position: absolute;
+    bottom: 0;
+}
+
+
+.main-view {
+    position: absolute;
+    top: @header-height;
+    bottom: @footer-height;
+}
