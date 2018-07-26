@@ -1,21 +1,5 @@
 <template>
-    <footer>
-    </footer>
+    <div class="footer-view">
+
+    </div>
 </template>
-
-<script>
-
-    
-
-    export default {
-        data() {
-            return {
-                tabbar: [
-                    {
-                        name: ''
-                    }
-                ]
-            }
-        }
-    };
-</script>

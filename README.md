@@ -388,3 +388,67 @@ module: {
     ]
 }
 ```
+
+
+
+- ## 优化
+
+#### 动态链接库DLL
+把基础模块代码打包进入动态链接库，比如vue、react等。这样做打包速度会提升60%~70%。
+
+1. 创建webpack.dll.config.js
+```
+const path = require('path');
+const webpack = require('webpack');
+
+module.exports = {
+  entry: {
+      vendor: ['vue', 'vue-router']
+  },
+  output: {
+    path: path.join(__dirname, 'dist'),
+    filename: '[name].dll.js',
+    library: '[name]_library'
+  },
+  plugins: [
+    new webpack.DllPlugin({
+      path: path.join(__dirname, 'dist', '[name]-manifest.json'),
+      name: '[name]_library'
+    })
+  ]
+};
+```
+
+2. 在webpack.config.js中配置
+```
+    plugins: [
+       new webpack.DllReferencePlugin({
+            context: __dirname,
+            manifest: require('./dist/vendor-manifest.json')
+        })
+    ]
+```
+
+3. 生成动态链接库
+```
+// package.json
+// "dll": "webpack --config webpack.dll.config.js"
+
+webpack --config webpack.dll.config.js
+```
+
+将会在当前目录生成dist目录，该目录下面的文件有 vendor.dll.js、vendor-manifest.json
+
+
+在`index.html`中将文件引入
+
+```
+...
+<body>
+    <div id="root"></div>
+    <script type="text/javascript" src="./vendor.dll.js"></script>
+</body>
+...
+```
+
+然后就可以开始调试了

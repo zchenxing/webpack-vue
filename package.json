@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "rm -rf dist/ && webpack --mode development && open dist/index.html",
-    "build": "rm -rf dist/ && webpack --mode production",
-    "server": "webpack-dev-server --mode development --open"
-  },
+    "start": "webpack-dev-server  --open --color --hot --mode development --inline --profile",
+    "dev": "webpack --mode development && open dist/index.html",
+    "build": "webpack --mode production",
+    "dll":"webpack --config webpack.dll.config.js --mode production"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",

@@ -1,10 +1,5 @@
 <template>
-    <header>
-        
-    </header>
-</template>
+    <div class="header-view">
 
-<script>
-    export default {
-    };
-</script>
+    </div>
+</template>

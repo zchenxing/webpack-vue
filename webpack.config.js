@@ -1,5 +1,5 @@
 const path = require('path');
-const Webpack = require('webpack');
+const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const ExtractTextWebapckPlugin = require('extract-text-webpack-plugin');
@@ -16,12 +16,17 @@ module.exports = {
         new htmlWebpackPlugin({
             template: 'index.html',
             filename: 'index.html',
+            vendor: './vendor.dll.js', //与dll配置文件中output.fileName对齐
             inject: true
         }),
-        new VueLoaderPlugin(),
         new ExtractTextWebapckPlugin({
             filename: 'css/[name].css'
         }),
+        new VueLoaderPlugin(),
+        new webpack.DllReferencePlugin({
+            context: __dirname,
+            manifest: require('./dist/vendor-manifest.json')
+        })
     ],
 
     module: {
@@ -54,17 +59,12 @@ module.exports = {
                 }
             },
             {
-                test:/\.vue$/,
-                loader: 'vue-loader',
-            },
+                test: /\.vue$/,
+                loader: 'vue-loader'
+            }
         ]
     },
     
-    resolve: {
-        alias: {
-            'vue$': 'vue/dist/vue.esm.js'
-        }
-    },
 
     devServer: {
         contentBase: path.join(__dirname, 'dist'),

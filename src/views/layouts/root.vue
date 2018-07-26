@@ -1,13 +1,11 @@
 <template>
-    <div class="container">
-    </div>
+    <router-view></router-view>
 </template>
 
 <script>
-    // import '../../assets/stylesheets/layout.less'
+    import '../../assets/stylesheets/layout.less'
 
     export default {
-        components: {
-        }
-    };
+
+    }
 </script>
