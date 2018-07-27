@@ -9,7 +9,7 @@ module.exports = {
 
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'js/[name]-[hash].js'
+        filename: 'js/[name]-[hash].js',
     },
 
     plugins: [
@@ -61,6 +61,15 @@ module.exports = {
             {
                 test: /\.vue$/,
                 loader: 'vue-loader'
+            },
+            {
+                test: /\.(png|jpeg|gif|svg)(\?.*)?$/,
+                use: {
+                    loader: 'url-loader',
+                    query: {
+                        name: 'assets/[hash].[ext]'
+                    }
+                }
             }
         ]
     },
