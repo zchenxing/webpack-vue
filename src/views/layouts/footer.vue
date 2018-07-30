@@ -26,6 +26,12 @@
                         select_img_url: require("../../assets/images/home_select.png"),
                     },
                     {
+                        name: '发现',
+                        link: '/discover',
+                        img_url: require('../../assets/images/discover.png'),
+                        select_img_url: require('../../assets/images/discover_select.png')
+                    },
+                    {
                         name: "我的",
                         link: "/my",
                         img_url: require("../../assets/images/my.png"),
