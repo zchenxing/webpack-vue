@@ -11,7 +11,7 @@ module.exports = {
         path: path.join(__dirname, 'dist'),
         filename: 'js/[name]-[hash].js',
     },
-
+  
     plugins: [
         new htmlWebpackPlugin({
             template: 'index.html',
@@ -73,8 +73,13 @@ module.exports = {
             }
         ]
     },
-    
 
+    resolve: {
+        alias: {
+            'assets': path.resolve(__dirname, './src/assets'),
+            'components': path.resolve(__dirname, './src/components')
+        }
+    },
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         inline: true,

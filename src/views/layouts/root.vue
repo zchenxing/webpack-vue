@@ -3,7 +3,6 @@
 </template>
 
 <script>
-    import '../../assets/stylesheets/layout.less'
 
     export default {
 
