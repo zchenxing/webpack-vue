@@ -41,8 +41,6 @@
             };
         },
         mounted() {
-            console.log(this.$route.path);
-
             let _this = this;
             this.tabbar.forEach((tab, index) => {
                 if(tab.link === _this.$route.path) { 

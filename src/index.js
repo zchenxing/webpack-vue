@@ -4,10 +4,7 @@ import router from './routes'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 
 
-import 'swiper/dist/css/swiper.css'
-import './assets/stylesheets/reset.css'
-import './assets/stylesheets/layout.less'
-import './views/home/home.less'
+import './assets/javascript/application.js'
 
 Vue.use(VueAwesomeSwiper)
 

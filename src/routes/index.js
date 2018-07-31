@@ -5,6 +5,7 @@ const Main = resolve => {require(['../views/main/main.vue'], resolve)}
 const Home = resolve => {require(['../views/home/home.vue'], resolve)}
 const My = resolve => {require(['../views/my/my.vue'], resolve)}
 const Discover = resolve => {require(['../views/discover/discover.vue'], resolve)}
+const Animation = resolve => {require(['../views/animation/animation.vue'], resolve)}
 
 Vue.use(Router)
 
@@ -16,6 +17,10 @@ export default new Router({
                 {path: '/my', component: My},
                 {path: '/discover', component: Discover},
             ]
-        }
+        },
+        {
+            path: '/animation', component: Animation
+        },
+
     ]
 })

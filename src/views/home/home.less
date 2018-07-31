@@ -1,5 +1,80 @@
-.banner-img {
+@import url('../../assets/stylesheets/style.less');
+
+.tpl-container {
     width: 100%;
-    background-size: cover;
-    background-position: center;
+    margin-top: 20px;
+    background: #fff;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tpl-container__item {
+    width: 25%;
+    height: 150px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+        flex: 1.2;
+        width: 80px;
+        margin-top: 10px;
+    }
+
+    p {
+        flex: 1;
+    }
+}
+
+
+.hot-container {
+    margin-top: 60px;
+    position: relative;
+
+    .hot-container__title {
+        position: absolute;
+        left: 0;
+        top: -30px;
+        width: 25%;
+        height: 60px;
+        line-height: 60px;
+        color: #fff;
+        font-size: 29px;
+        background: @color-base;
+        text-align: center;
+        border-radius: 0 30px 30px 0;
+        overflow: hidden;
+        z-index: 20;
+    }
+
+    .hot-container__item {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .hot-container__item div{
+        width: 33.33%;
+        height: 200px;
+        border: 1px solid #fff;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+    }
+
+    .hot-container__item div[data-hot=true]{
+        width: 66.66%;
+    }
+
 }

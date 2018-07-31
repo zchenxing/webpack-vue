@@ -3,13 +3,15 @@ const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const ExtractTextWebapckPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
     entry: './src/index.js',
 
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'js/[name]-[hash].js',
+        filename: 'js/bundle.js',
     },
   
     plugins: [
@@ -19,8 +21,9 @@ module.exports = {
             vendor: './vendor.dll.js', //与dll配置文件中output.fileName对齐
             inject: true
         }),
-        new ExtractTextWebapckPlugin({
-            filename: 'css/[name].css'
+        new MiniCssExtractPlugin({
+            filename: "css/[name].css",
+            chunkFilename: "css/[id].css"
         }),
         new VueLoaderPlugin(),
         new webpack.DllReferencePlugin({
@@ -32,18 +35,18 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css$/,
-                // loader:['style-loader','css-loader']
-                // 不再需要style-loader
-                use: ExtractTextWebapckPlugin.extract({
-                    use: ['css-loader','postcss-loader']
-                }),
+                test: /\.vue$/,
+                loader: 'vue-loader',
             },
             {
-                test: /\.less$/,
-                use:ExtractTextWebapckPlugin.extract({ //分离less编译后的css文件
-                    use:['css-loader','less-loader', 'postcss-loader']
-                })
+                test: /\.(c|le)ss$/,
+                use: [
+                    devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'postcss-loader',
+                    'px2rem-loader', 
+                    'less-loader',
+                ]
             },
             {
                 test: /\.js$/,
@@ -59,11 +62,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.vue$/,
-                loader: 'vue-loader'
-            },
-            {
-                test: /\.(png|jpeg|gif|svg)(\?.*)?$/,
+                test: /\.(png|jpg|jpeg|gif|svg)(\?.*)?$/,
                 use: {
                     loader: 'url-loader',
                     query: {
@@ -83,8 +82,8 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         inline: true,
-        host: 'localhost',
-        port: 3011,   
+        host: '10.0.0.147',
+        port: 3005,   
         open: true,
         historyApiFallback: true
     }

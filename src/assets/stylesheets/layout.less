@@ -1,6 +1,5 @@
 @import 'style';
-@header-height: 60px;
-@footer-height: 50px;
+@footer-height: 100px;
 
 .container {
     width: 100%;
@@ -8,19 +7,10 @@
 }
 
 
-.header-view {
-    width: 100%;
-    height: @header-height;
-    position: absolute;
-    background: @color-gray-lighten;
-}
-
-
 .main-view {
     position: absolute;
     width: 100%;
-    top: @header-height;
-    bottom: @footer-height;
+    padding-bottom: @footer-height + 20px;
 }
 
 
@@ -29,9 +19,10 @@
     width: 100%;
     height: @footer-height;
     background: @color-gray-lighten;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     overflow: hidden;
+    border-top: 1px solid #e2e2e2;
 
     display: flex;
     justify-content: flex-start;
@@ -45,11 +36,17 @@
     align-items: center;
 
     p {
-        font-size: 12px;
+        font-size: 24px;
+    }
+
+    img {
+        margin-top: 10px;
+        width: 50px;
     }
 }
 
 
-.active p{
+.active p {
     color: @color-base;
 }
+
