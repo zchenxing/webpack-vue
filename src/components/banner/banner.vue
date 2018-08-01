@@ -30,9 +30,6 @@
                 },
             }
         },
-        mounted() {
-            console.log(this.dataSource)
-        },
     }
 </script>
 
