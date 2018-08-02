@@ -7,10 +7,9 @@ const My = resolve => {require(['../views/my/my.vue'], resolve)}
 const Discover = resolve => {require(['../views/discover/discover.vue'], resolve)}
 const Animation = resolve => {require(['../views/animation/animation.vue'], resolve)}
 
-
 Vue.use(Router)
 
-Router.prototype.goBack = () => {
+Router.prototype.goBack = function () {
     this.isBack = true;
     window.history.go(-1);    
 }
