@@ -24,6 +24,7 @@
             </div>
         </div>
 
+        <list-chunk :style="{marginTop: '30px'}"></list-chunk>
     </div>
 </template>
 
@@ -31,11 +32,12 @@
 <script>
     
     import Banner from 'components/banner/banner.vue'
+    import ListChunk from 'components/list_chunk/listChunk.vue'
     import './home.less'
 
     export default {
         components: {
-            Banner
+            Banner, ListChunk
         },
         data() {
             return {

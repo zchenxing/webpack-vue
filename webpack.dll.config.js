@@ -3,7 +3,7 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-      vendor: ['vue', 'vue-router']
+      vendor: ['vue', 'vue-router', 'vuex', 'mint-ui', 'vue-awesome-swiper']
   },
   output: {
     path: path.join(__dirname, 'dist'),

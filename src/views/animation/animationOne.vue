@@ -1,6 +1,6 @@
 <template>
     <div class="full-screen">
-        animation one
+        <mt-button type="primary" @click="goBack()">primary</mt-button>
     </div>
 </template>
 
@@ -12,6 +12,11 @@
     export default {
         mounted() {
             console.log(this.$store.state.count)
+        },
+        methods: {
+            goBack() {
+                this.$router.goBack();
+            }
         }
     }
 

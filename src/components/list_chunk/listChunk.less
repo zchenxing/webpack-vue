@@ -1,0 +1,34 @@
+.list-chunk {
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.list-chunk__item {
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background: #fff;
+}
+
+
+.lc-item--img {
+    width: 100%;
+    height: 300px;
+
+    background-image: url("../../assets/images/lc-item.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.lc-item--content {
+    margin: 30px 4px;
+    font-size: 26px;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+}

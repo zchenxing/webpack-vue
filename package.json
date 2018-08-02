@@ -8,7 +8,7 @@
     "start": "webpack-dev-server  --open --color --hot --mode development --inline --profile",
     "dev": "webpack --mode development && open dist/index.html",
     "build": "webpack --mode production",
-    "dll": "webpack --config webpack.dll.config.js --mode production"
+    "dll": "webpack --config webpack.dll.config.js --progress --mode production"
   },
   "keywords": [],
   "author": "",
@@ -28,17 +28,18 @@
     "postcss-loader": "^2.1.6",
     "style-loader": "^0.21.0",
     "url-loader": "^1.0.1",
-    "vue": "^2.5.16",
     "vue-loader": "^15.2.6",
-    "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.5.16",
-    "vuex": "^3.0.1",
     "webpack": "^4.16.2",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5"
   },
   "dependencies": {
+    "vue": "^2.5.16",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1",
     "lib-flexible": "^0.3.2",
+    "mint-ui": "^2.2.13",
     "px2rem-loader": "^0.1.9",
     "vue-awesome-swiper": "^3.1.3"
   }
