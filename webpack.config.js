@@ -4,7 +4,7 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const ExtractTextWebapckPlugin = require('extract-text-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const devMode = process.env.NODE_ENV !== 'production'
+const devMode = process.env.NODE_ENV === 'development'
 
 module.exports = {
     entry: './src/index.js',
@@ -13,7 +13,7 @@ module.exports = {
         path: path.join(__dirname, 'dist'),
         filename: 'js/bundle.js',
     },
-  
+    devtool: process.env.NODE_ENV === 'development' ? 'eval': 'cheap-module-source-map' , 
     plugins: [
         new htmlWebpackPlugin({
             template: 'index.html',
@@ -82,7 +82,7 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         inline: true,
-        host: '10.0.0.147',
+        host: 'localhost',
         port: 3005,   
         open: true,
         historyApiFallback: true

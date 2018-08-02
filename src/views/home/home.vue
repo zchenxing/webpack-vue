@@ -24,7 +24,6 @@
             </div>
         </div>
 
-
     </div>
 </template>
 
@@ -64,6 +63,8 @@
                 ]
             };
         },
+        mounted() {
+        },
         methods: {
             handleTpl(index) {
                 this.$router.push({
@@ -71,7 +72,8 @@
                         query: {
                             id: index + 1
                         }
-                    });
+                    }
+                );
             }
         }
     };
