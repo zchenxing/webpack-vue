@@ -1,7 +1,11 @@
 import * as types from './mutation-types'
 
 export default {
-    [types.ADD_COUNT](state) {
-        state.count ++
+    [types.INCREMENT_COUNT](state) {
+        state.count ++;
+    },
+
+    [types.DECREMENT_COUNT](state) {
+        state.count --;
     }
 }
