@@ -13,7 +13,7 @@ module.exports = {
         path: path.join(__dirname, 'dist'),
         filename: 'js/bundle.js',
     },
-    devtool: process.env.NODE_ENV === 'development' ? 'eval': 'cheap-module-source-map' , 
+    // devtool: process.env.NODE_ENV === 'development' ? 'eval': 'cheap-module-source-map' , 
     plugins: [
         new htmlWebpackPlugin({
             template: 'index.html',

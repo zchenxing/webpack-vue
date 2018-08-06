@@ -9,7 +9,7 @@
             <mt-button type="primary" @click="increment">加</mt-button>
             <mt-button type="danger" @click="decrement">减</mt-button>
         </div>
-        <mt-button @click.native="goBack">点击返回</mt-button>
+        <mt-button @click.native="goBack()">点击返回</mt-button>
 
     </div>
 </template>

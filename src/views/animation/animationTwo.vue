@@ -7,6 +7,8 @@
         <div id="circle-base">
             <div id="home-text" :style="{backgroundImage: `url('${homeText}')`}"></div>
         </div>
+        
+        <div class="back" @click="goToBack" :style="{backgroundImage: `url('${back}')`}"></div>
     </div>
 </template>
 
@@ -17,7 +19,8 @@
     export default {
         data() {
             return {
-                homeText: require('assets/images/home-txt.png')
+                homeText: require('assets/images/home-txt.png'),
+                back: require('assets/images/back.png'),
             }
         },
         mounted() {
@@ -75,6 +78,22 @@
                     duration: 1000,
                     elasticity: 600
                 })
+            },
+            goToBack() {
+               let circle = document.getElementById('circle-base');
+               let text = document.getElementById('home-text');
+
+                new Promise((resolve) => {
+                    text.style.transition = 'all .3s';
+                    text.style.transform = 'scale(0)';
+                    circle.style.transition = 'transform .4s';
+                    circle.style.transform = 'scale(10)';
+                    setTimeout(() => {
+                        resolve()
+                    }, 400);
+                }).then(() => {
+                    this.$router.goBack();
+                })
             }
         }
     };
@@ -128,5 +147,17 @@
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
+    }
+
+    .back {
+        position: absolute;
+        bottom: 50px;
+        left: 50px;
+        width: 64px;
+        height: 64px;
+
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
     }
 </style>
