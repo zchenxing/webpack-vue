@@ -1,5 +1,4 @@
 import 'lib-flexible'
-import 'mint-ui/lib/style.css'
 import 'swiper/dist/css/swiper.css'
 import '../stylesheets/reset.css'
 import '../stylesheets/layout.less'

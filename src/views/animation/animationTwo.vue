@@ -159,5 +159,20 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
+
+        animation: backAnime 1.7s infinite linear;
     }
+
+    @keyframes backAnime {
+        0% {
+            transform: scale(1)
+        }
+        50% {
+            transform: scale(1.2)
+        }
+        100% {
+            transform: scale(1)
+        }
+    }
+
 </style>

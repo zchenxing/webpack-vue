@@ -17,7 +17,11 @@
 <script>
 
     export default {
+        name: 'yz-banner',
         props: ['heightRem', 'dataSource'],
+        mounted() {
+            console.log(this.heightRem)
+        },
         data() {
             return{
                swiperOption: {

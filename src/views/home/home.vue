@@ -1,6 +1,6 @@
 <template>
     <div>
-        <banner :heightRem='5' :dataSource="dataSource"></banner>
+        <yz-banner :heightRem='5' :dataSource="dataSource"></yz-banner>
         
         <div class="tpl-container">
             <div class="tpl-container__item" 
@@ -24,21 +24,16 @@
             </div>
         </div>
 
-        <list-chunk :style="{marginTop: '30px'}"></list-chunk>
+        <yz-list-chunk :style="{marginTop: '30px'}"></yz-list-chunk>
     </div>
 </template>
 
 
 <script>
     
-    import Banner from 'components/banner/banner.vue'
-    import ListChunk from 'components/list_chunk/listChunk.vue'
     import './home.less'
 
     export default {
-        components: {
-            Banner, ListChunk
-        },
         data() {
             return {
                 dataSource: [

@@ -1,15 +1,15 @@
 <template>
     <div class="full-screen">
         
-        <div >
-            <mt-badge size="large">{{count}}</mt-badge>
+        <div>
+            <label>{{count}}</label>
         </div>
 
         <div>
-            <mt-button type="primary" @click="increment">加</mt-button>
-            <mt-button type="danger" @click="decrement">减</mt-button>
+            <yz-button text='加' @click.native="increment"></yz-button>
+            <yz-button text='减' @click.native="decrement" ></yz-button>
         </div>
-        <mt-button @click.native="goBack()">点击返回</mt-button>
+        <yz-button text="点击返回" type="primary" @click.native="goBack"></yz-button>
 
     </div>
 </template>
@@ -31,6 +31,7 @@
                 this.$router.goBack();
             },
             increment() {
+                console.log('加')
                 this.$store.commit('INCREMENT_COUNT');
             },
             decrement() {
